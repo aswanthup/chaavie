@@ -514,6 +514,7 @@ footer{
 /* FOOTER */
 .footer{
   flex-direction: column;
+  margin-top:20px;
 
 }
 
@@ -521,7 +522,51 @@ footer{
   width:100%;
 }
 
+
+.second-heading{
+  font-size:24px;
+  text-align: center;
 }
+
+/* HERO SECTION */
+
+.head{
+  font-size:24px;
+}
+
+.btn1{
+  margin-top:10px;
+}
+
+/* ABOUT US */
+
+.right p{
+  line-height:20px;
+  font-size:14px;
+  padding:10px;
+}
+
+.second-section{
+  margin-top: 20px;
+  line-height:20px;
+  font-size:14px;
+ 
+}
+.second-section p{
+  padding:10px;
+}
+
+.product-head h3{
+  font-size:16px;
+}
+
+.product-para{
+  font-size:14px;
+}
+
+
+}
+
 
 @media screen and (max-width:420px){
 .second-heading{
