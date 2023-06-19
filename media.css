@@ -1,0 +1,83 @@
+@media screen and(max-width:1024) {
+
+    body{
+        font-size:18px;
+    }
+    
+}
+
+
+
+
+
+
+@media screen and(max-width:900) {
+
+    body{
+        font-size:16px;
+    }
+
+    .social-icons{
+        display:none;
+    }
+    
+}
+
+
+
+
+
+
+@media screen and (max-width: 767px){
+
+.product{
+   flex-direction: column;
+}
+.product-left{
+    width:100%;
+}
+.first-section{
+    width:100%;
+}
+.right{
+    width:100%;
+}
+
+/* ABOUT US */
+
+.first-section{
+    flex-direction: column;
+}
+/* CONTACT US */
+.contact-section{
+    flex-direction: column;
+}
+
+.contact-image{
+    width: 100%;
+}
+/* FOOTER */
+.footer{
+    flex-direction: column;
+
+}
+
+.footer-left{
+    width:100%;
+}
+
+}
+
+@media screen and (max-width:420px){
+/* HERO SECTION */
+
+.head{
+    font-size:12px;
+}
+
+.btn1{
+    margin-top:10px;
+}
+
+}
+
