@@ -1,33 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</style>
+<script>
+function toggleMenu() {
+    var menuBar = document.getElementById('menuBar');
+    menuBar.classList.toggle('active');
+}
+
+
+
+(function($) {
+
+$.fn.letterDrop = function() {
+  // Chainability
+  return this.each( function() { 
   
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <link rel="stylesheet" href="style.css" >
-   
+  var obj = $( this );
+  
+  var drop = {
+    arr : obj.text().split( '' ),
+    
+    range : {
+      min : 1,
+      max : 9
+    },
+    
+    styles : function() {
+      var dropDelays = '\n', addCSS;
+      
+       for ( i = this.range.min; i <= this.range.max; i++ ) {
+         dropDelays += '.ld' + i + ' { animation-delay: 1.' + i + 's; }\n';  
+       }
+      
+        addCSS = $( '<style>' + dropDelays + '</style>' );
+        $( 'head' ).append( addCSS );
+    },
+    
+    main : function() {
+      var dp = 0;
+      obj.text( '' );
+      
+      $.each( this.arr, function( index, value ) {
 
-    <title>Document</title>
+        dp = dp.randomInt( drop.range.min, drop.range.max );
+        
+        if ( value === ' ' )
+          value = '&nbsp'; //Add spaces
+        
+          obj.append( '<span class="letterDrop ld' + dp + '">' + value + '</span>' );
+        
+      });
+          
+    }
+  };
+   
+  Number.prototype.randomInt = function ( min, max ) {
+    return Math.floor( Math.random() * ( max - min + 1 ) + min );
+  };
+  
+  
+  // Create styles
+  drop.styles();
+
+
+    // Initialise
+    drop.main();
+  });
+
+};
+
+}(jQuery));
+
+
+// USAGE
+$( 'h1' ).letterDrop();
+
+</script>
+
+  <title>Document</title>
 </head>
+
 <body>
-<!-- HERO SECTION -->
+  <!-- HERO SECTION -->
 
-<div class="background flex">
-
-    <div class="head">
-      <h1>Smart <span class="effect">Moves</span></h1>
-      <h1>Smart <span>People</span></h1>
-      <h1>Smart Solutions</h1>
+  <div class="nav1">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        Chaavie Solution
+      </div>
     </div>
-   
-</div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    
+    <div class="nav-links">
+      <a href="//github.io/jo_geek" target="_blank">Home</a>
+      <a href="http://stackoverflow.com/users/4084003/" target="_blank">About</a>
+      <a href="https://in.linkedin.com/in/jonesvinothjoseph" target="_blank">Services</a>
+      <a href="https://codepen.io/jo_Geek/" target="_blank">Product</a>
+      <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">Contact</a>
+    </div>
+  </div>
 
-<div class="logo"><img src="./images/logo (1) 1.png" alt=""></div>
+  
 
-           <!-- social icon 
- <div class="social-icons">
+  <div class="background ">
+
+     <!-- <div class="head">
+      <h1 class="letterDrop">Smart <span class="effect">Moves</span></h1>
+      <h1 class="letterDrop">Smart <span>People</span></h1>
+      <h1 class="letterDrop">Smart Solutions</h1>
+    </div> -->
+
+  </div>
+
+  
+
+  <div class="logo"><img src="./images/logo (1) 1.png" alt=""></div>
+
+  <!-- NAV ICONS -->
+  <nav id="menuBar" class="nav2">
+    <ul>
+        <li>
+            <a href="javascript:toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
+                <span>Menu</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0,0,256,256"
+              style="fill:#000000;">
+              <g fill="#3498db" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M39.5,43h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-9c0,-1.105 -0.895,-2 -2,-2h-4c-1.105,0 -2,0.895 -2,2v9c0,1.381 -1.119,2.5 -2.5,2.5h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-19.087c0,-2.299 1.054,-4.471 2.859,-5.893l14.212,-11.199c0.545,-0.428 1.313,-0.428 1.857,0l14.214,11.199c1.805,1.422 2.858,3.593 2.858,5.891v19.089c0,1.381 -1.119,2.5 -2.5,2.5z"></path></g></g>
+              </svg>
+                </svg>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="#about">
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256"
+style="fill:#000000;">
+<g fill="#3498db" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M15,3c-6.627,0 -12,5.373 -12,12c0,6.627 5.373,12 12,12c6.627,0 12,-5.373 12,-12c0,-6.627 -5.373,-12 -12,-12zM16,21h-2v-7h2zM15,11.5c-0.828,0 -1.5,-0.672 -1.5,-1.5c0,-0.828 0.672,-1.5 1.5,-1.5c0.828,0 1.5,0.672 1.5,1.5c0,0.828 -0.672,1.5 -1.5,1.5z"></path></g></g>
+</svg>
+            </svg>
+                <span>About</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#189afe}</style><path d="M0 192H176V0H160C71.6 0 0 71.6 0 160v32zm0 32V352c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H192 0zm384-32V160C384 71.6 312.4 0 224 0H208V192H384z"/></svg>
+                <span>Services</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" /></svg>
+                <span>Product</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" class=".svgs" height="2px" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+  <!--END NAV ICONS -->
+
+  <!-- NAV FOR SMARTPHONE -->
+
+
+
+  <!-- social icon  -->
+  <div class="social-icons">
     <div class="wrapper">
 
       <a href="#" class="icon-container icon-container-facebook">
@@ -52,174 +212,416 @@
 
     </div>
   </div>
-</div>
-end social icon -->
-
-<!-- ABOUT US -->
-<div class="container">
-<div class="second-heading">ABOUT US</div>
-</div>
-<div class="container">
-
-<div class="first-section flex">
-<div class="left flex">
-            <img src="./images/5155720_2672335 1.png" alt="">
-</div>
-<div class="right">
-             <p>At Chaavie, our focus is always the success of our customer. With Digital being the new buzz and the way of business, we can help you navigate the digital cross winds and chart your way to success. Our way of business is built on trust, innovation and delivering the best value to our customers.</p>
-</div>
-
-</div>
-
-<div class="second-section">
-
-<p>Based in the land of Zamorins, Kozhikode, Chaavie Solutions is a new age digital services company focusing on helping customers start or chart their digital journey.
-  We are a group of highly motivated professionals, passionate at what we do. Our experience ranges from handling and managing Operations of complex Oil and Gas installations to complex software deliveries, Digital Transformation to Digital marketing.
-  We are living in a fast-paced world where technology and business needs keeps changing by the day. We ensure that the best of the technology is made available to our customers and our agile project management ensures that the solution is never out-dated.</p>
-</div>
-</div>
-<!-- SERVICES -->
-<div class="container">
-  <div class="second-heading">OUR SERVICES</div>
   </div>
-<div class="container flex">
-   <div class="first-div">
-         <div class="element1">
-          <div class="icon"><img src="" alt=""></div>
-          <div class="para">DIGITAL<br>TRANSFORMATION</div>
-         </div>
+  <!-- end social icon -->
 
-   
-   </div> 
-   
-   <div class="second-div">
-   
-   </div>
-   
-   <div class="third-div">
-</div>  
-   </div>
-
-<!-- PRODUCT -->
-<div class="container">
-  <div class="second-heading">OUR PRODUCT</div>
+  <!-- ABOUT US -->
+  <div class="container">
+    <div class="second-heading" id="about">ABOUT US</div>
   </div>
-<div class="container">
-  <div class="product flex">
-           <div class="product-left">
-                <div class="product-head"><h3>LOGISTIC PLATFORM</h3></div>
-                <div class="product-para"><p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets and trips. This comes with a web/mobile application for customers, administration capacities for transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p></div>
-           </div>
-           <div class="product-left">
-            <div class="product-head"  style="background-color: #AB81F1;"><h3>ERP PLATFORM</h3></div>
-            <div class="product-para"><p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets and trips. This comes with a web/mobile application for customers, administration capacities for transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p></div>
-       </div>
-  </div>
+  <div class="container">
 
-  <div class="product flex">
-    <div class="product-left">
-         <div class="product-head" style="background-color: #3C78C0;" ><h3>DIGITAL MARKETING PLATFORM</h3></div>
-         <div class="product-para"><p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets and trips. This comes with a web/mobile application for customers, administration capacities for transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p></div>
+    <div class="first-section flex">
+      <div class="left flex">
+        <img src="./images/5155720_2672335 1.png" alt="">
+      </div>
+      <div class="right">
+        <p>At Chaavie, our focus is always the success of our customer. With Digital being the new buzz and the way of
+          business, we can help you navigate the digital cross winds and chart your way to success. Our way of business
+          is built on trust, innovation and delivering the best value to our customers.</p>
+      </div>
+
     </div>
-    <div class="product-left">
-     <div class="product-head" style="background-color: #A1D07E;"><h3>MANY MORE TO COME</h3></div>
-     <div class="product-para"><p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets and trips. This comes with a web/mobile application for customers, administration capacities for transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p></div>
+
+    <div class="second-section">
+
+      <p>Based in the land of Zamorins, Kozhikode, Chaavie Solutions is a new age digital services company focusing on
+        helping customers start or chart their digital journey.
+        We are a group of highly motivated professionals, passionate at what we do. Our experience ranges from handling
+        and managing Operations of complex Oil and Gas installations to complex software deliveries, Digital
+        Transformation to Digital marketing.
+        We are living in a fast-paced world where technology and business needs keeps changing by the day. We ensure
+        that the best of the technology is made available to our customers and our agile project management ensures that
+        the solution is never out-dated.</p>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- SERVICES -->
+  <div class="container">
+    <div class="second-heading" style="text-align: center;">OUR SERVICES</div>
+  </div>
+
+  <div class="container services">
+    <div class="services-image">
+      <img src="./images/4911001_2555355-removebg-preview.png" alt="">
+ </div>
+
+      <div class="hoversection flex" id="popup">
+            <div class="servicehover " >
+                <h2>DIGITAL TRASFORMATION</h2>
+                <p>Still stuck in the paper age? RPA, AI, AR/VR, Cloud, IoT – do not let these jargons worry you. Digital transformation is not always complex and expensive. From eliminating the overheads, optimizing the processes and automation, there are quick easy wins which our professionals can help you find. Right from building the transformation strategy to transforming your business, we will travel with you - all the way</p>
+                
+            </div>
+       </div>
+
+
+       <div class="hoversection flex" id="popup1">
+        <div class="servicehover " >
+            <h2>MOBILE APP DEVELOPMENT</h2>
+            <p>Reach your target customers faster with our curated Digital Marketing solutions. We believe that not one size fits all. Our digital marketing professionals will help you build a brand strategy – one that is specific to your product or business. Be it SEO, Email/Social Media Marketing, Google Ads, or traditional channels, you can count on us for the best campaigns.</p>
+            
+        </div>
+   </div>
+
+   <div class="hoversection flex" id="popup2">
+    <div class="servicehover " >
+        <h2>DIGITAL MARKETING</h2>
+        <p>Android or IOS, we will put your solution in the palms of your customers. Right from conceptualization to productionizing, you can rely on us to provide you and your customers with best in-app experiences.
+
+          Flutter,Swift,Kotlin,Java - there is nothing that is not doable.</p>
+        
+    </div>
 </div>
+
+<div class="hoversection flex" id="popup3">
+  <div class="servicehover " >
+      <h2>WEB DEVELOPMENT</h2>
+      <p>First impression is the best impression. And in this digital age, websites are your face. Make the right impression with beautiful designs and engaging content. Be it just landing page or a complex web application, we can help you build it, maintain it and market it.</p>
+      
+  </div>
 </div>
-</div>
-<!-- CONTACT US -->
-<div class="container">
-  <div class="second-heading">CONTACT US</div>
+
+
+
+    <div class="top flex">
+
+      <div class="top-left flex" id="digital">
+        <div class="icon1 flex" style="background-color:#35D03B;">
+          <img src="./images/icons8-speedometer-96.png" alt="">
+        </div>
+
+        <div class="services-heading flex" onmouseover="showPopup()" onmouseout="hidePopup()">
+          <h2>DIGITAL TRANSFORMATION</h2>
+        </div>
+      </div>
+
+      <div class="top-right flex">
+    
+
+        <div class="services-heading services-heading-right flex" onmouseover="showPopup1()" onmouseout="hidePopup1()">
+          <h2>MOBILE APP DEVELOPMENT</h2>
+        </div>
+        <div class="icon1 flex" style="background-color:#1C62B6;">
+          <img src="./images/icons8-smartphone-96.png" alt="">
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="top top1 flex">
+
+      <div class="top-left flex">
+        <div class="icon1 flex" style="background-color:#874BEB;">
+          <img src="./images/icons8-digital-marketing-96 (1).png" alt="">
+        </div>
+
+        <div class="services-heading  flex" onmouseover="showPopup2()" onmouseout="hidePopup2()">
+          <h2>DIGITAL MARKETING</h2>
+        </div>
+      </div>
+
+      <div class="top-right flex">
+       
+
+        <div class="services-heading services-heading-right flex" onmouseover="showPopup3()" onmouseout="hidePopup3()">
+          <h2>WEB DEVELOPMENT</h2>
+        </div>
+
+        <div class="icon1 flex" style="background-color:#F41F41;">
+          <img src="./images/icons8-web-96 (1).png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+   <!--SERVICES JAVASCRIPT -->
+  <script>
+    function showPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function hidePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+function showPopup1() {
+  document.getElementById("popup1").style.display = "block";
+}
+
+function hidePopup1() {
+  document.getElementById("popup1").style.display = "none";
+}
+
+function showPopup2() {
+  document.getElementById("popup2").style.display = "block";
+}
+
+function hidePopup2() {
+  document.getElementById("popup2").style.display = "none";
+}
+
+function showPopup3() {
+  document.getElementById("popup3").style.display = "block";
+}
+
+function hidePopup3() {
+  document.getElementById("popup3").style.display = "none";
+}
+  </script>
+
+
+<!--2nd SERVICES -->
+
+
+
+<div class="container box-section">
+
+   <div class="top-image flex">
+    <div><img src="./images/4911001_2555355-removebg-preview.png" alt=""></div>
+   </div>
+      <div class="box">
+          <h2>DIGITAL TRANSFORMATION</h2>
+          <p>Still stuck in the paper age? RPA, AI, AR/VR, Cloud, IoT – do not let these jargons worry you. Digital transformation is not always complex and expensive. From eliminating the overheads, optimizing the processes and automation, there are quick easy wins which our professionals can help you find. Right from building the transformation strategy to transforming your business, we will travel with you - all the way</p>
+      </div>
+
+      <div class="box" style="background-color: #ece0ff;">
+        <h2 style="color:#AB81F1;">DIGITAL MARKETING</h2>
+        <p>Reach your target customers faster with our curated Digital Marketing solutions. We believe that not one size fits all. Our digital marketing professionals will help you build a brand strategy – one that is specific to your product or business. Be it SEO, Email/Social Media Marketing, Google Ads, or traditional channels, you can count on us for the best campaigns.</p>
+    </div>
+
+    <div class="box"  style="background-color:#e7f2ff;">
+      <h2 style="color:#3C78C0;">MOBILE APP DEVELOPMENT</h2>
+      <p>Android or IOS, we will put your solution in the palms of your customers. Right from conceptualization to productionizing, you can rely on us to provide you and your customers with best in-app experiences.
+
+        Flutter,Swift,Kotlin,Java - there is nothing that is not doable.</p>
+  </div>
+
+  <div class="box"  style="background-color:rgba(64, 233, 76,0.2);">
+    <h2 style="color:rgb(14, 124, 22);">WEB DEVELOPMENT</h2>
+    <p>First impression is the best impression. And in this digital age, websites are your face. Make the right impression with beautiful designs and engaging content. Be it just landing page or a complex web application, we can help you build it, maintain it and market it.</p>
 </div>
 
 
 
 
-<div class="container">
+</div>
+
+  <!-- PRODUCT 2-->
+  <div class="container">
+    <div class="second-heading">OUR PRODUCT</div>
+  </div>
+  <div class="container">
+    <div class="product flex">
+      <div class="product-left">
+        <div class="product-head">
+          <h3>LOGISTIC PLATFORM</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+      <div class="product-left">
+        <div class="product-head" style="background-color: #AB81F1;">
+          <h3>ERP PLATFORM</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="product flex">
+      <div class="product-left">
+        <div class="product-head" style="background-color: #3C78C0;">
+          <h3>DIGITAL MARKETING PLATFORM</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+      <div class="product-left">
+        <div class="product-head" style="background-color: #A1D07E;">
+          <h3>MANY MORE TO COME</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="second-heading">OUR PRODUCT</div>
+  </div>
+  <div class="container">
+    <div class="product flex">
+      <div class="product-left">
+        <div class="product-head">
+          <h3>LOGISTIC PLATFORM</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+      <div class="product-left">
+        <div class="product-head" style="background-color: #AB81F1;">
+          <h3>ERP PLATFORM</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="product flex">
+      <div class="product-left">
+        <div class="product-head" style="background-color: #3C78C0;">
+          <h3>DIGITAL MARKETING PLATFORM</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+      <div class="product-left">
+        <div class="product-head" style="background-color: #A1D07E;">
+          <h3>MANY MORE TO COME</h3>
+        </div>
+        <div class="product-para">
+          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
+            and trips. This comes with a web/mobile application for customers, administration capacities for
+            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- CONTACT US -->
+  <div class="container">
+    <div class="second-heading">CONTACT US</div>
+  </div>
+
+
+
+
+  <div class="container">
 
     <div class="contact-section flex">
 
-     
-        <div class="contact-image flex">
-              <img src="./images/8690678_3969587 1.png" alt="">
-        </div>
-      
 
-     <div class="formsection flex">
-        <div class="form flex">
-           <div class="first flex">
-                  <input type="text" placeholder="Name">
-                  <input type="number" name="" id="" placeholder="Number">
-
-           </div>  
-           <textarea name="" id="" cols="30" rows="10"></textarea>
-           <div class="second">
-            
-           </div>  
-
-           <div class="third flex">
-            <button class="btn1 flex"> Send <img src="./images/icons8-telegram-100 (1).png" alt=""></button>
-           </div>  
-        </div>
-      </div>  
-    </div>
-</div>
-
-<!-- FOOTER -->
-       <footer class="container flex footer">
-            <div class="footer-left">
-              <img src="./images/Frame 10.png" alt="">
-              <p style="color: white;" class="details">At Chaavie, our focus is always the success of our customer. With Digital being the new buzz and the way of business, we can help you navigate the digital cross winds and chart your way to success.</p>
-            </div>
-
-            <div class="footer-right">
-              <h1 style="color: white;">CONTACT</h1>
-        
-                <div class="icontext flex">
-                  <div class="left-image flex">
-                    <img src="./images/icons8-location-96.png" alt="" >
-                  </div>
-                  
-                  <div class="left-data flex">
-                    <h5 class="details">Kottaram Cross Rd, Shasthri Nagar Colony, East NadakkaveKozhikode, Kerala 673006</h5>
-                  </div>
-                </div>
-
-                <div class="icontext flex">
-                  <div class="left-image flex">
-                    <img src="./images/icons8-email-96.png" alt="" >
-                  </div>
-                  
-                  <div class="left-data flex">
-                    <h5 class="details">contact@chaaviesolutions.com</h5>
-                  </div>
-                </div>
-
-                <div class="icontext flex">
-                  <div class="left-image flex">
-                    <img src="./images/icons8-phone-96.png" alt="" >
-                  </div>
-                  
-                  <div class="left-data flex">
-                    <h5 class="details">+91 8086730010</h5>
-                  </div>
-                </div>
-
-
-
-            </div>
-       </footer>
-
-       <div class="container">
-        <div class="copyright">© Copyright chaavie solutions. All Rights Reserved</div>
+      <div class="contact-image flex">
+        <img src="./images/8690678_3969587 1.png" alt="">
       </div>
 
-<!-- END FOOTER -->
+
+      <div class="formsection flex">
+        <div class="form flex">
+          <div class="first flex">
+            <input type="text" placeholder="Name">
+            <input type="number" name="" id="" placeholder="Number">
+
+          </div>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <div class="second">
+
+          </div>
+
+          <div class="third flex">
+            <button class="btn1 flex"> Send <img src="./images/icons8-telegram-100 (1).png" alt=""></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="container flex footer">
+    <div class="footer-left">
+      <img src="./images/Frame 10.png" alt="">
+      <p style="color: white;" class="details">At Chaavie, our focus is always the success of our customer. With Digital
+        being the new buzz and the way of business, we can help you navigate the digital cross winds and chart your way
+        to success.</p>
+    </div>
+
+    <div class="footer-right">
+      <h1 style="color: white;">CONTACT</h1>
+
+      <div class="icontext flex">
+        <div class="left-image flex">
+          <img src="./images/icons8-location-96.png" alt="">
+        </div>
+
+        <div class="left-data flex">
+          <h5 class="details">Kottaram Cross Rd, Shasthri Nagar Colony, East NadakkaveKozhikode, Kerala 673006</h5>
+        </div>
+      </div>
+
+      <div class="icontext flex">
+        <div class="left-image flex">
+          <img src="./images/icons8-email-96.png" alt="">
+        </div>
+
+        <div class="left-data flex">
+          <h5 class="details">contact@chaaviesolutions.com</h5>
+        </div>
+      </div>
+
+      <div class="icontext flex">
+        <div class="left-image flex">
+          <img src="./images/icons8-phone-96.png" alt="">
+        </div>
+
+        <div class="left-data flex">
+          <h5 class="details">+91 8086730010</h5>
+        </div>
+      </div>
 
 
 
+    </div>
+  </footer>
+
+  <div class="container">
+    <div class="copyright">© Copyright chaavie solutions. All Rights Reserved</div>
+  </div>
+
+  <!-- END FOOTER -->
+
+
+  
 
 
 
 </body>
+
 </html>
