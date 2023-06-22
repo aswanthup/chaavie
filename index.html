@@ -17,75 +17,14 @@ function toggleMenu() {
 
 
 
-(function($) {
 
-$.fn.letterDrop = function() {
-  // Chainability
-  return this.each( function() { 
-  
-  var obj = $( this );
-  
-  var drop = {
-    arr : obj.text().split( '' ),
-    
-    range : {
-      min : 1,
-      max : 9
-    },
-    
-    styles : function() {
-      var dropDelays = '\n', addCSS;
-      
-       for ( i = this.range.min; i <= this.range.max; i++ ) {
-         dropDelays += '.ld' + i + ' { animation-delay: 1.' + i + 's; }\n';  
-       }
-      
-        addCSS = $( '<style>' + dropDelays + '</style>' );
-        $( 'head' ).append( addCSS );
-    },
-    
-    main : function() {
-      var dp = 0;
-      obj.text( '' );
-      
-      $.each( this.arr, function( index, value ) {
-
-        dp = dp.randomInt( drop.range.min, drop.range.max );
-        
-        if ( value === ' ' )
-          value = '&nbsp'; //Add spaces
-        
-          obj.append( '<span class="letterDrop ld' + dp + '">' + value + '</span>' );
-        
-      });
-          
-    }
-  };
-   
-  Number.prototype.randomInt = function ( min, max ) {
-    return Math.floor( Math.random() * ( max - min + 1 ) + min );
-  };
-  
-  
-  // Create styles
-  drop.styles();
-
-
-    // Initialise
-    drop.main();
-  });
-
-};
-
-}(jQuery));
-
-
-// USAGE
-$( 'h1' ).letterDrop();
 
 </script>
 
-  <title>Document</title>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'><link rel="stylesheet" href="./style.css">
+<script src="https://kit.fontawesome.com/e65db3fdd1.js" crossorigin="anonymous"></script>
+
+  <title>Chaavie Solutions</title>
 </head>
 
 <body>
@@ -100,87 +39,85 @@ $( 'h1' ).letterDrop();
     </div>
     <div class="nav-btn">
       <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
+        <div></div>
+        <div></div>
+        <div></div>
       </label>
     </div>
     
     <div class="nav-links">
-      <a href="//github.io/jo_geek" target="_blank">Home</a>
-      <a href="http://stackoverflow.com/users/4084003/" target="_blank">About</a>
-      <a href="https://in.linkedin.com/in/jonesvinothjoseph" target="_blank">Services</a>
-      <a href="https://codepen.io/jo_Geek/" target="_blank">Product</a>
-      <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">Contact</a>
+      <a href="#" target="_blank">Home</a>
+      <a href="#about" target="_blank">About</a>
+      <a href="#services" target="_blank">Services</a>
+      <a href="#product" target="_blank">Product</a>
+      <a href="#contact" target="_blank">Contact</a>
     </div>
   </div>
 
   
 
-  <div class="background ">
+  <div class="background " >
+      
+     <!-- NAV ICONS -->
+  <div class="card">
+    <div class="menu1">
+      <div class="toggle">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+      </div>
+        <ul>
+          <a href="#home" class="new">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+          <a class="new" href="#about">
+            <i class="fa-solid fa-address-card"></i>
+            <span>About</span>
+          </a>
+          <a class="new" href="#services">
+            <i class="fa-solid fa-computer"></i>
+            <span>Services</span>
+          </a>
+          <a class="new" href="#product">
+            <i class="fa-solid fa-pager"></i>
+            <span>Product</span>
+          </a>
+          <a class="new" href="#contact">
+            <i class="fa-solid fa-phone"></i>
+            <span>Contact</span>
+          </a>
+        </ul>
+    </div>
+  </div>
+  <!-- partial -->
+    <script>let menu = document.querySelector('.menu1');
+      let toggle = document.querySelector('.toggle');
+      
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });</script>
+  
 
-     <!-- <div class="head">
-      <h1 class="letterDrop">Smart <span class="effect">Moves</span></h1>
-      <h1 class="letterDrop">Smart <span>People</span></h1>
+
+
+
+
+
+     <div class="head">
+      <h1 class="letterDrop">Smart Moves</span></h1><br>
+      <h1 class="letterDrop">Smart People</span></h1><br>
       <h1 class="letterDrop">Smart Solutions</h1>
-    </div> -->
+    </div>
 
   </div>
 
   
 
-  <div class="logo"><img src="./images/logo (1) 1.png" alt=""></div>
+  <div class="logo"  id="home"><img src="./images/logo (1) 1.png" alt=""></div>
 
-  <!-- NAV ICONS -->
-  <nav id="menuBar" class="nav2">
-    <ul>
-        <li>
-            <a href="javascript:toggleMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
-                <span>Menu</span>
-            </a>
-        </li>
-        <li>
-            <a href="">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0,0,256,256"
-              style="fill:#000000;">
-              <g fill="#3498db" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M39.5,43h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-9c0,-1.105 -0.895,-2 -2,-2h-4c-1.105,0 -2,0.895 -2,2v9c0,1.381 -1.119,2.5 -2.5,2.5h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-19.087c0,-2.299 1.054,-4.471 2.859,-5.893l14.212,-11.199c0.545,-0.428 1.313,-0.428 1.857,0l14.214,11.199c1.805,1.422 2.858,3.593 2.858,5.891v19.089c0,1.381 -1.119,2.5 -2.5,2.5z"></path></g></g>
-              </svg>
-                </svg>
-                <span>Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="#about">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256"
-style="fill:#000000;">
-<g fill="#3498db" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M15,3c-6.627,0 -12,5.373 -12,12c0,6.627 5.373,12 12,12c6.627,0 12,-5.373 12,-12c0,-6.627 -5.373,-12 -12,-12zM16,21h-2v-7h2zM15,11.5c-0.828,0 -1.5,-0.672 -1.5,-1.5c0,-0.828 0.672,-1.5 1.5,-1.5c0.828,0 1.5,0.672 1.5,1.5c0,0.828 -0.672,1.5 -1.5,1.5z"></path></g></g>
-</svg>
-            </svg>
-                <span>About</span>
-            </a>
-        </li>
-        <li>
-            <a href="">
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#189afe}</style><path d="M0 192H176V0H160C71.6 0 0 71.6 0 160v32zm0 32V352c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H192 0zm384-32V160C384 71.6 312.4 0 224 0H208V192H384z"/></svg>
-                <span>Services</span>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" /></svg>
-                <span>Product</span>
-            </a>
-        </li>
-        <li>
-            <a href="">
-              <svg xmlns="http://www.w3.org/2000/svg" class=".svgs" height="2px" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-                <span>Contact</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-  <!--END NAV ICONS -->
+ 
+
+
 
   <!-- NAV FOR SMARTPHONE -->
 
@@ -190,22 +127,22 @@ style="fill:#000000;">
   <div class="social-icons">
     <div class="wrapper">
 
-      <a href="#" class="icon-container icon-container-facebook">
-        <i class="fab fa-facebook-f"></i>
-        <div class="icon-text icon-text-facebook">Facebook</div>
+      <a href="tel:+918086730010" class="icon-container icon-container-facebook">
+        <i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i>
+        <div class="icon-text icon-text-facebook">Phone</div>
       </a>
 
-      <a href="#" class="icon-container icon-container-twitter">
-        <i class="fab fa-twitter"></i>
-        <div class="icon-text icon-text-twitter">Twitter</div>
+      <a href="mailto:contact@chaaviesolutions.com" class="icon-container icon-container-twitter">
+        <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+        <div class="icon-text icon-text-twitter">Email</div>
       </a>
 
-      <a href="#" class="icon-container icon-container-github">
+      <a href="http://wa.me/+918086730010" class="icon-container icon-container-github">
         <i class="fab fa-whatsapp"></i>
         <div class="icon-text icon-text-github">Whatsapp</div>
       </a>
 
-      <a href="#" class="icon-container icon-container-instagram">
+      <a href="https://www.instagram.com/chaavie_sol/" class="icon-container icon-container-instagram">
         <i class="fab fa-instagram"></i>
         <div class="icon-text icon-text-instagram">Instagram</div>
       </a>
@@ -252,7 +189,7 @@ style="fill:#000000;">
 
 
   <!-- SERVICES -->
-  <div class="container">
+  <div class="container" id="services">
     <div class="second-heading" style="text-align: center;">OUR SERVICES</div>
   </div>
 
@@ -391,8 +328,8 @@ function hidePopup3() {
 <!--2nd SERVICES -->
 
 
-
-<div class="container box-section">
+<div  class="boxsection">
+<div class="container">
 
    <div class="top-image flex">
     <div><img src="./images/4911001_2555355-removebg-preview.png" alt=""></div>
@@ -420,19 +357,24 @@ function hidePopup3() {
 </div>
 
 
-
+</div>
 
 </div>
 
-  <!-- PRODUCT 2-->
-  <div class="container">
-    <div class="second-heading">OUR PRODUCT</div>
+  <!-- PRODUCT -->
+
+
+
+  <!-- PRODUCT 2 -->
+
+  <div class="container" >
+    <div class="second-heading" id="product">OUR PRODUCT</div>
   </div>
   <div class="container">
     <div class="product flex">
-      <div class="product-left">
-        <div class="product-head">
-          <h3>LOGISTIC PLATFORM</h3>
+      <div class="product-left p2">
+        <div class="product-head p3">
+          <h3 style="">LOGISTIC PLATFORM</h3>
         </div>
         <div class="product-para">
           <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
@@ -440,8 +382,8 @@ function hidePopup3() {
             transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
         </div>
       </div>
-      <div class="product-left">
-        <div class="product-head" style="background-color: #AB81F1;">
+      <div class="product-left p2">
+        <div class="product-head p3" style="background-color: #AB81F1;">
           <h3>ERP PLATFORM</h3>
         </div>
         <div class="product-para">
@@ -453,8 +395,8 @@ function hidePopup3() {
     </div>
 
     <div class="product flex">
-      <div class="product-left">
-        <div class="product-head" style="background-color: #3C78C0;">
+      <div class="product-left p2">
+        <div class="product-head p3" style="background-color: #3C78C0;">
           <h3>DIGITAL MARKETING PLATFORM</h3>
         </div>
         <div class="product-para">
@@ -463,8 +405,8 @@ function hidePopup3() {
             transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
         </div>
       </div>
-      <div class="product-left">
-        <div class="product-head" style="background-color: #A1D07E;">
+      <div class="product-left p2">
+        <div class="product-head p3" style="background-color: #A1D07E;">
           <h3>MANY MORE TO COME</h3>
         </div>
         <div class="product-para">
@@ -476,59 +418,11 @@ function hidePopup3() {
     </div>
   </div>
 
-  <div class="container">
-    <div class="second-heading">OUR PRODUCT</div>
-  </div>
-  <div class="container">
-    <div class="product flex">
-      <div class="product-left">
-        <div class="product-head">
-          <h3>LOGISTIC PLATFORM</h3>
-        </div>
-        <div class="product-para">
-          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
-            and trips. This comes with a web/mobile application for customers, administration capacities for
-            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
-        </div>
-      </div>
-      <div class="product-left">
-        <div class="product-head" style="background-color: #AB81F1;">
-          <h3>ERP PLATFORM</h3>
-        </div>
-        <div class="product-para">
-          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
-            and trips. This comes with a web/mobile application for customers, administration capacities for
-            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="product flex">
-      <div class="product-left">
-        <div class="product-head" style="background-color: #3C78C0;">
-          <h3>DIGITAL MARKETING PLATFORM</h3>
-        </div>
-        <div class="product-para">
-          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
-            and trips. This comes with a web/mobile application for customers, administration capacities for
-            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
-        </div>
-      </div>
-      <div class="product-left">
-        <div class="product-head" style="background-color: #A1D07E;">
-          <h3>MANY MORE TO COME</h3>
-        </div>
-        <div class="product-para">
-          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
-            and trips. This comes with a web/mobile application for customers, administration capacities for
-            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <!-- CONTACT US -->
-  <div class="container">
-    <div class="second-heading">CONTACT US</div>
+  <div class="container" >
+    <div class="second-heading" id="contact">CONTACT US</div>
   </div>
 
 
