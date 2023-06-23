@@ -374,7 +374,7 @@ function hidePopup3() {
     <div class="product flex">
       <div class="product-left p2">
         <div class="product-head p3">
-          <h3 style="">LOGISTIC PLATFORM</h3>
+          <h3>LOGISTIC PLATFORM</h3>
         </div>
         <div class="product-para">
           <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
@@ -387,9 +387,7 @@ function hidePopup3() {
           <h3>ERP PLATFORM</h3>
         </div>
         <div class="product-para">
-          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
-            and trips. This comes with a web/mobile application for customers, administration capacities for
-            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+          <p>We have developed a customizable ERP platform, designed to streamline your business operations with precision and efficiency. This platform can be customised to meet your unique needs - our platform seamlessly integrates key processes, from inventory management to financial reporting. Empower your organization with real-time insights, increased collaboration, and simplified workflows.</p>
         </div>
       </div>
     </div>
@@ -397,12 +395,10 @@ function hidePopup3() {
     <div class="product flex">
       <div class="product-left p2">
         <div class="product-head p3" style="background-color: #3C78C0;">
-          <h3>DIGITAL MARKETING PLATFORM</h3>
+          <h3>ECOMMERCE PLATFORM</h3>
         </div>
         <div class="product-para">
-          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
-            and trips. This comes with a web/mobile application for customers, administration capacities for
-            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+          <p>We have developed a feature-rich, customizable e-commerce platform built on WooCommerce. This can be customized further to suit your unique requirements. Our application will help you seamlessly manage your online store, from product listings to secure payments, while enjoying the flexibility to adapt and scale as your business grows. Benefit from a user-friendly interface, robust inventory management, and a vast array of plugins and themes.</p>
         </div>
       </div>
       <div class="product-left p2">
@@ -410,9 +406,7 @@ function hidePopup3() {
           <h3>MANY MORE TO COME</h3>
         </div>
         <div class="product-para">
-          <p>We have a customizable logistics platform, that can work as a TMS for logistics companies to manage fleets
-            and trips. This comes with a web/mobile application for customers, administration capacities for
-            transporters and a mobile application for drivers. And we can add a lot more, just ask us.</p>
+          <p>Our next products are coming soon !</p>
         </div>
       </div>
     </div>
@@ -512,10 +506,25 @@ function hidePopup3() {
   <!-- END FOOTER -->
 
 
-  
+  <!-- JAVASCRIPT FOR FOOTER -->
 
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
+  <script>
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "",
+        Password: "",
+        To: '',
+        From: document.getElementById("email").value,
+        Subject: "New Contact Form Enquiry",
+        Body: "And this is the body"
+      }).then(
+        message => alert(message)
+      );
+    }
+  </script>
 
 </body>
-
 </html>
