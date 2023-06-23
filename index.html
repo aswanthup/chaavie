@@ -435,8 +435,8 @@ function hidePopup3() {
       <div class="formsection flex">
         <div class="form flex">
           <div class="first flex">
-            <input type="text" placeholder="Name">
-            <input type="number" name="" id="" placeholder="Number">
+            <input type="text" placeholder="Name" required>
+            <input type="email" name="email" id="email" placeholder="Email" required>
 
           </div>
           <textarea name="" id="" cols="30" rows="10"></textarea>
@@ -445,7 +445,7 @@ function hidePopup3() {
           </div>
 
           <div class="third flex">
-            <button class="btn1 flex"> Send <img src="./images/icons8-telegram-100 (1).png" alt=""></button>
+            <button class="btn1 flex" onclick="sendEmail()"> Send <img src="./images/icons8-telegram-100 (1).png" alt=""></button>
           </div>
         </div>
       </div>
