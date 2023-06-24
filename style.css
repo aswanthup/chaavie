@@ -735,16 +735,17 @@ height:auto;
 
 .product-head{
   width: 100%;
+  padding:8px;
   text-align:center;
   background-color: #F7627A;
-  padding: 15px;
   color: white;
+  font-size:20px;
 }
 
 .product-para{
 padding:2%;
 text-align: justify;
-font-size:1.2rem;
+font-size:1rem;
 line-height: 2em;
 }
 
@@ -752,16 +753,15 @@ line-height: 2em;
 /* PRODUCT 2 */
 
 .p2{
-  border-radius:50px;
+  border-radius:20px;
   padding:10px;
   border:1px solid rgba(0, 0, 0,0.2);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .p3{
-  border-radius:50px;
-  padding:20px;
-  border:1px solid rgba(0, 0, 0,0.2);
+  border-radius:10px;
+  
 }
 
 
@@ -778,7 +778,7 @@ justify-content: center;
 }
 
 .contact-image{
-  padding:5%;
+  padding:2%;
   width:40%;
   justify-content: center;
   align-items: center
